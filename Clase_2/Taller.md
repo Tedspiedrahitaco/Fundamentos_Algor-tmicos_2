@@ -80,10 +80,10 @@ En sistemas bancarios con millones de cuentas, una búsqueda lineal pararía ser
 Escribe el siguiente pseudocódigo en PSeInt:
 
 ```pseint
-Algoritmo BusquedaBinaria;
+Algoritmo BusquedaBinaria
 	Definir registros Como Entero;
-	Definir inicio, fin, mitad, meta Como Entero;
-	Definir encontrado Como Lógico;
+	Definir inicio, final, mitad, meta Como Entero;
+	Definir encontrado Como Logico;
 	Definir i Como Entero;
 
 	Dimension registros[8];
@@ -106,10 +106,10 @@ Algoritmo BusquedaBinaria;
 	Leer meta;
 
 	inicio <- 1;
-	fin <- 8;
+	final <- 8;
 
-	Mientras (inicio <= fin) Y (encontrado = Falso) Hacer
-		mitad <- TRUNC((inicio + fin) / 2);
+	Mientras (inicio <= final) Y (encontrado = Falso) Hacer
+		mitad <- TRUNC((inicio + final) / 2);
 		
 		Escribir "Comparando con posición ", mitad, ": ", registros[mitad];
 		
@@ -125,7 +125,7 @@ Algoritmo BusquedaBinaria;
 				inicio <- mitad + 1;
 			Sino
 				Escribir "  → Buscando en mitad inferior";
-				fin <- mitad - 1;
+				final <- mitad - 1;
 			FinSi;
 		FinSi;
 	FinMientras;
@@ -134,7 +134,7 @@ Algoritmo BusquedaBinaria;
 		Escribir "";
 		Escribir "✗ ERROR: Registro ", meta, " no existe en la base de datos";
 	FinSi;
-FinAlgoritmo;
+FinAlgoritmo
 ```
 
 #### Paso 3: Ejecución y Pruebas
@@ -351,15 +351,15 @@ Cliente 2 → Cliente 3 → Cliente 4 (Avanza)
 Abre PSeInt y crea: `ColaFIFO.psc`
 
 ```pseint
-Algoritmo SimuladorColaFIFO;
+Algoritmo SimuladorColaFIFO
 	Definir cola Como Cadena;
-	Definir inicio, fin, tamanio, operacion, i Como Entero;
+	Definir inicio, final, tamanio, operacion, i Como Entero;
 	Definir solicitud Como Cadena;
 	Definir continuar Como Caracter;
 
 	Dimension cola[10];
 	inicio <- 1;
-	fin <- 0;
+	final <- 0;
 	tamanio <- 0;
 	continuar <- "S";
 
@@ -383,16 +383,16 @@ Algoritmo SimuladorColaFIFO;
 		Segun operacion Hacer
 			Caso 1:
 				Si tamanio < 10 Entonces
-					fin <- fin + 1;
-					Si fin > 10 Entonces
-						fin <- 1;
+					final <- final + 1;
+					Si final > 10 Entonces
+						final <- 1;
 					FinSi;
 					Escribir "Ingresa descripción de la solicitud (ej: Depósito, Retiro):";
 					Leer solicitud;
-					cola[fin] <- solicitud;
+					cola[final] <- solicitud;
 					tamanio <- tamanio + 1;
 					Escribir "✓ Solicitud agregada a la cola";
-					Escribir "  Posición: ", fin;
+					Escribir "  Posición: ", final;
 					Escribir "  Total en cola: ", tamanio;
 				Sino
 					Escribir "✗ ERROR: Cola llena.";
@@ -422,7 +422,7 @@ Algoritmo SimuladorColaFIFO;
 					Escribir "Próxima a atender: ", cola[inicio];
 					Escribir "";
 					Escribir "Orden de atención:";
-					Para i <- inicio Hasta fin Con Paso 1 Hacer
+					Para i <- inicio Hasta final Con Paso 1 Hacer
 						Si cola[i] <> "" Entonces
 							Escribir "  ", i, ". ", cola[i];
 						FinSi;
@@ -438,7 +438,7 @@ Algoritmo SimuladorColaFIFO;
 				Escribir "✗ Opción inválida";
 		FinSegun;
 	FinMientras;
-FinAlgoritmo;
+FinAlgoritmo
 ```
 
 #### Paso 3: Ejecución y Pruebas
@@ -494,10 +494,10 @@ Ejecutar ambos algoritmos sobre el mismo dataset y medir diferencias reales de r
 Archivo: `BusquedaLineal.psc`
 
 ```pseint
-Algoritmo BusquedaLineal;
+Algoritmo BusquedaLineal
 	Definir registros Como Entero;
 	Definir i, meta, comparaciones Como Entero;
-	Definir encontrado Como Lógico;
+	Definir encontrado Como Logico;
 
 	Dimension registros[8];
 	registros[1] <- 1002;
@@ -534,7 +534,7 @@ Algoritmo BusquedaLineal;
 		Escribir "✗ NO ENCONTRADO";
 		Escribir "Total de comparaciones: ", comparaciones;
 	FinSi;
-FinAlgoritmo;
+FinAlgoritmo
 ```
 
 #### Paso 2: Ejecutar Ambos Algoritmos
