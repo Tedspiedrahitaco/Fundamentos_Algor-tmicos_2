@@ -79,76 +79,62 @@ En sistemas bancarios con millones de cuentas, una búsqueda lineal pararía ser
 
 Escribe el siguiente pseudocódigo en PSeInt:
 
-```text
-Algoritmo BusquedaBinaria
-    // ============================================
-    // DECLARACIÓN DE VARIABLES
-    // ============================================
-    Definir registros Como Entero
-    Definir inicio, fin, mitad, meta Como Entero
-    Definir encontrado Como Lógico
+```pseint
+Algoritmo BusquedaBinaria;
+	Definir registros Como Entero;
+	Definir inicio, fin, mitad, meta Como Entero;
+	Definir encontrado Como Lógico;
+	Definir i Como Entero;
 
-    // ============================================
-    // INICIALIZACIÓN DE DATOS (Vector Ordenado)
-    // ============================================
-    Dimension registros[8]
-    registros[1] <- 1002
-    registros[2] <- 1045
-    registros[3] <- 2098
-    registros[4] <- 3301
-    registros[5] <- 3311
-    registros[6] <- 4005
-    registros[7] <- 5020
-    registros[8] <- 6081
+	Dimension registros[8];
+	registros[1] <- 1002;
+	registros[2] <- 1045;
+	registros[3] <- 2098;
+	registros[4] <- 3301;
+	registros[5] <- 3311;
+	registros[6] <- 4005;
+	registros[7] <- 5020;
+	registros[8] <- 6081;
 
-    encontrado <- Falso
+	encontrado <- Falso;
 
-    // ============================================
-    // ENTRADA DEL USUARIO
-    // ============================================
-    Escribir "=== SISTEMA BÚSQUEDA BINARIA ==="
-    Escribir "Registros disponibles:"
-    Escribir "1002, 1045, 2098, 3301, 3311, 4005, 5020, 6081"
-    Escribir ""
-    Escribir "Ingrese el número de registro a localizar:"
-    Leer meta
+	Escribir "=== SISTEMA BÚSQUEDA BINARIA ===";
+	Escribir "Registros disponibles:";
+	Escribir "1002, 1045, 2098, 3301, 3311, 4005, 5020, 6081";
+	Escribir "";
+	Escribir "Ingrese el número de registro a localizar:";
+	Leer meta;
 
-    // ============================================
-    // ALGORITMO BÚSQUEDA BINARIA
-    // ============================================
-    inicio <- 1
-    fin <- 8
+	inicio <- 1;
+	fin <- 8;
 
-    Mientras (inicio <= fin) Y (encontrado = Falso) Hacer
-        mitad <- TRUNC((inicio + fin) / 2)
-        
-        Escribir "Comparando con posición ", mitad, ": ", registros[mitad]
-        
-        Si registros[mitad] = meta Entonces
-            Escribir ""
-            Escribir "✓ ¡ÉXITO! Registro localizado"
-            Escribir "Posición en el sistema: ", mitad
-            Escribir "Valor del registro: ", registros[mitad]
-            encontrado <- Verdadero
-        Sino
-            Si registros[mitad] < meta Entonces
-                Escribir "  → Buscando en mitad superior"
-                inicio <- mitad + 1
-            Sino
-                Escribir "  → Buscando en mitad inferior"
-                fin <- mitad - 1
-            FinSi
-        FinSi
-    FinMientras
+	Mientras (inicio <= fin) Y (encontrado = Falso) Hacer
+		mitad <- TRUNC((inicio + fin) / 2);
+		
+		Escribir "Comparando con posición ", mitad, ": ", registros[mitad];
+		
+		Si registros[mitad] = meta Entonces
+			Escribir "";
+			Escribir "✓ ¡ÉXITO! Registro localizado";
+			Escribir "Posición en el sistema: ", mitad;
+			Escribir "Valor del registro: ", registros[mitad];
+			encontrado <- Verdadero;
+		Sino
+			Si registros[mitad] < meta Entonces
+				Escribir "  → Buscando en mitad superior";
+				inicio <- mitad + 1;
+			Sino
+				Escribir "  → Buscando en mitad inferior";
+				fin <- mitad - 1;
+			FinSi;
+		FinSi;
+	FinMientras;
 
-    // ============================================
-    // MANEJO DE NO ENCONTRADO
-    // ============================================
-    Si encontrado = Falso Entonces
-        Escribir ""
-        Escribir "✗ ERROR: Registro ", meta, " no existe en la base de datos"
-    FinSi
-FinAlgoritmo
+	Si encontrado = Falso Entonces
+		Escribir "";
+		Escribir "✗ ERROR: Registro ", meta, " no existe en la base de datos";
+	FinSi;
+FinAlgoritmo;
 ```
 
 #### Paso 3: Ejecución y Pruebas
@@ -364,108 +350,95 @@ Cliente 2 → Cliente 3 → Cliente 4 (Avanza)
 
 Abre PSeInt y crea: `ColaFIFO.psc`
 
-```text
-Algoritmo SimuladorColaFIFO
-    // ============================================
-    // DECLARACIÓN DE VARIABLES
-    // ============================================
-    Definir cola Como Cadena
-    Definir inicio, fin, tamanio, operacion, i Como Entero
-    Definir solicitud Como Cadena
-    Definir continuar Como Caracter
+```pseint
+Algoritmo SimuladorColaFIFO;
+	Definir cola Como Cadena;
+	Definir inicio, fin, tamanio, operacion, i Como Entero;
+	Definir solicitud Como Cadena;
+	Definir continuar Como Caracter;
 
-    // ============================================
-    // INICIALIZACIÓN
-    // ============================================
-    Dimension cola[10]  // Cola con capacidad máxima 10
-    inicio <- 1
-    fin <- 0
-    tamanio <- 0
-    continuar <- "S"
+	Dimension cola[10];
+	inicio <- 1;
+	fin <- 0;
+	tamanio <- 0;
+	continuar <- "S";
 
-    Escribir "╔══════════════════════════════════════╗"
-    Escribir "║   SIMULADOR DE COLA FIFO - BANCO     ║"
-    Escribir "║   First In, First Out                ║"
-    Escribir "╚══════════════════════════════════════╝"
-    Escribir ""
+	Escribir "╔════════════════════════════════════╗";
+	Escribir "║   SIMULADOR DE COLA FIFO - BANCO   ║";
+	Escribir "║   First In, First Out              ║";
+	Escribir "╚════════════════════════════════════╝";
+	Escribir "";
 
-    // ============================================
-    // MENÚ PRINCIPAL
-    // ============================================
-    Mientras continuar = "S" O continuar = "s" Hacer
-        Escribir ""
-        Escribir "─── OPCIONES ───"
-        Escribir "[1] Enqueue (Ingresar solicitud)"
-        Escribir "[2] Dequeue (Atender solicitud)"
-        Escribir "[3] Ver estado de la cola"
-        Escribir "[4] Salir"
-        Escribir ""
-        Escribir "Selecciona una opción:"
-        Leer operacion
-        
-        Segun operacion Hacer
-            Caso 1:  // ENQUEUE - Insertar
-                Si tamanio < 10 Entonces
-                    fin <- fin + 1
-                    Si fin > 10 Entonces
-                        fin <- 1
-                    FinSi
-                    Escribir "Ingresa descripción de la solicitud (ej: Depósito, Retiro):"
-                    Leer solicitud
-                    cola[fin] <- solicitud
-                    tamanio <- tamanio + 1
-                    Escribir "✓ Solicitud agregada a la cola"
-                    Escribir "  Posición: ", fin
-                    Escribir "  Total en cola: ", tamanio
-                Sino
-                    Escribir "✗ ERROR: Cola llena. No se pueden agregar más solicitudes."
-                FinSi
-            
-            Caso 2:  // DEQUEUE - Remover
-                Si tamanio > 0 Entonces
-                    Escribir ""
-                    Escribir "Atendiendo solicitud..."
-                    Escribir "► Tipo: ", cola[inicio]
-                    cola[inicio] <- ""
-                    inicio <- inicio + 1
-                    Si inicio > 10 Entonces
-                        inicio <- 1
-                    FinSi
-                    tamanio <- tamanio - 1
-                    Escribir "✓ Solicitud completada"
-                    Escribir "Total en cola: ", tamanio
-                Sino
-                    Escribir "✗ ERROR: Cola vacía. No hay solicitudes que atender."
-                FinSi
-            
-            Caso 3:  // VER ESTADO
-                Escribir ""
-                Si tamanio > 0 Entonces
-                    Escribir "Estado actual de la cola:"
-                    Escribir "───────────────────────"
-                    Escribir "Total de solicitudes: ", tamanio
-                    Escribir "Próxima a atender: ", cola[inicio]
-                    Escribir ""
-                    Escribir "Orden de atención:"
-                    Para i <- inicio Hasta fin Con Paso 1 Hacer
-                        Si cola[i] <> "" Entonces
-                            Escribir "  ", i, ". ", cola[i]
-                        FinSi
-                    FinPara
-                Sino
-                    Escribir "La cola está vacía"
-                FinSi
-            
-            Caso 4:
-                Escribir ""
-                Escribir "Gracias por usar el simulador."
-                continuar <- "N"
-            
-            De Otro Modo:
-                Escribir "✗ Opción inválida"
-        FinSegun
-    FinMientras
-FinAlgoritmo
+	Mientras continuar = "S" O continuar = "s" Hacer
+		Escribir "";
+		Escribir "─── OPCIONES ───";
+		Escribir "[1] Enqueue (Ingresar solicitud)";
+		Escribir "[2] Dequeue (Atender solicitud)";
+		Escribir "[3] Ver estado de la cola";
+		Escribir "[4] Salir";
+		Escribir "";
+		Escribir "Selecciona una opción:";
+		Leer operacion;
+		
+		Segun operacion Hacer
+			Caso 1:
+				Si tamanio < 10 Entonces
+					fin <- fin + 1;
+					Si fin > 10 Entonces
+						fin <- 1;
+					FinSi;
+					Escribir "Ingresa descripción de la solicitud (ej: Depósito, Retiro):";
+					Leer solicitud;
+					cola[fin] <- solicitud;
+					tamanio <- tamanio + 1;
+					Escribir "✓ Solicitud agregada a la cola";
+					Escribir "  Posición: ", fin;
+					Escribir "  Total en cola: ", tamanio;
+				Sino
+					Escribir "✗ ERROR: Cola llena.";
+				FinSi;
+			Caso 2:
+				Si tamanio > 0 Entonces
+					Escribir "";
+					Escribir "Atendiendo solicitud...";
+					Escribir "► Tipo: ", cola[inicio];
+					cola[inicio] <- "";
+					inicio <- inicio + 1;
+					Si inicio > 10 Entonces
+						inicio <- 1;
+					FinSi;
+					tamanio <- tamanio - 1;
+					Escribir "✓ Solicitud completada";
+					Escribir "Total en cola: ", tamanio;
+				Sino
+					Escribir "✗ ERROR: Cola vacía.";
+				FinSi;
+			Caso 3:
+				Escribir "";
+				Si tamanio > 0 Entonces
+					Escribir "Estado actual de la cola:";
+					Escribir "───────────────────────";
+					Escribir "Total de solicitudes: ", tamanio;
+					Escribir "Próxima a atender: ", cola[inicio];
+					Escribir "";
+					Escribir "Orden de atención:";
+					Para i <- inicio Hasta fin Con Paso 1 Hacer
+						Si cola[i] <> "" Entonces
+							Escribir "  ", i, ". ", cola[i];
+						FinSi;
+					FinPara;
+				Sino
+					Escribir "La cola está vacía";
+				FinSi;
+			Caso 4:
+				Escribir "";
+				Escribir "Gracias por usar el simulador.";
+				continuar <- "N";
+			De Otro Modo:
+				Escribir "✗ Opción inválida";
+		FinSegun;
+	FinMientras;
+FinAlgoritmo;
 ```
 
 #### Paso 3: Ejecución y Pruebas
@@ -520,51 +493,48 @@ Ejecutar ambos algoritmos sobre el mismo dataset y medir diferencias reales de r
 
 Archivo: `BusquedaLineal.psc`
 
-```text
-Algoritmo BusquedaLineal
-    // ============================================
-    // BÚSQUEDA LINEAL - O(n)
-    // ============================================
-    Definir registros Como Entero
-    Definir i, meta, comparaciones Como Entero
-    Definir encontrado Como Lógico
+```pseint
+Algoritmo BusquedaLineal;
+	Definir registros Como Entero;
+	Definir i, meta, comparaciones Como Entero;
+	Definir encontrado Como Lógico;
 
-    Dimension registros[8]
-    registros[1] <- 1002
-    registros[2] <- 1045
-    registros[3] <- 2098
-    registros[4] <- 3301
-    registros[5] <- 3311
-    registros[6] <- 4005
-    registros[7] <- 5020
-    registros[8] <- 6081
+	Dimension registros[8];
+	registros[1] <- 1002;
+	registros[2] <- 1045;
+	registros[3] <- 2098;
+	registros[4] <- 3301;
+	registros[5] <- 3311;
+	registros[6] <- 4005;
+	registros[7] <- 5020;
+	registros[8] <- 6081;
 
-    encontrado <- Falso
-    comparaciones <- 0
+	encontrado <- Falso;
+	comparaciones <- 0;
 
-    Escribir "=== BÚSQUEDA LINEAL - O(n) ==="
-    Escribir "Ingresa el registro a buscar:"
-    Leer meta
+	Escribir "=== BÚSQUEDA LINEAL - O(n) ===";
+	Escribir "Ingresa el registro a buscar:";
+	Leer meta;
 
-    Para i <- 1 Hasta 8 Con Paso 1 Hacer
-        comparaciones <- comparaciones + 1
-        Escribir "Comparación ", comparaciones, ": registros[", i, "] = ", registros[i]
-        
-        Si registros[i] = meta Entonces
-            Escribir ""
-            Escribir "✓ ENCONTRADO en posición ", i
-            Escribir "Total de comparaciones: ", comparaciones
-            encontrado <- Verdadero
-            i <- 9  // Truco para salir del bucle
-        FinSi
-    FinPara
+	Para i <- 1 Hasta 8 Con Paso 1 Hacer
+		comparaciones <- comparaciones + 1;
+		Escribir "Comparación ", comparaciones, ": registros[", i, "] = ", registros[i];
+		
+		Si registros[i] = meta Entonces
+			Escribir "";
+			Escribir "✓ ENCONTRADO en posición ", i;
+			Escribir "Total de comparaciones: ", comparaciones;
+			encontrado <- Verdadero;
+			i <- 9;
+		FinSi;
+	FinPara;
 
-    Si encontrado = Falso Entonces
-        Escribir ""
-        Escribir "✗ NO ENCONTRADO"
-        Escribir "Total de comparaciones: ", comparaciones
-    FinSi
-FinAlgoritmo
+	Si encontrado = Falso Entonces
+		Escribir "";
+		Escribir "✗ NO ENCONTRADO";
+		Escribir "Total de comparaciones: ", comparaciones;
+	FinSi;
+FinAlgoritmo;
 ```
 
 #### Paso 2: Ejecutar Ambos Algoritmos
