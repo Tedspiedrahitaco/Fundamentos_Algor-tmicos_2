@@ -87,14 +87,14 @@ Algoritmo BusquedaBinaria
 	Definir i Como Entero;
 
 	Dimension registros[8];
-	registros[1] <- 1002;
-	registros[2] <- 1045;
-	registros[3] <- 2098;
-	registros[4] <- 3301;
-	registros[5] <- 3311;
-	registros[6] <- 4005;
-	registros[7] <- 5020;
-	registros[8] <- 6081;
+	registros[0] <- 1002;
+	registros[1] <- 1045;
+	registros[2] <- 2098;
+	registros[3] <- 3301;
+	registros[4] <- 3311;
+	registros[5] <- 4005;
+	registros[6] <- 5020;
+	registros[7] <- 6081;
 
 	encontrado <- Falso;
 
@@ -105,8 +105,8 @@ Algoritmo BusquedaBinaria
 	Escribir "Ingrese el número de registro a localizar:";
 	Leer meta;
 
-	inicio <- 1;
-	final <- 8;
+	inicio <- 0;
+	final <- 7;
 
 	Mientras (inicio <= final) Y (encontrado = Falso) Hacer
 		mitad <- TRUNC((inicio + final) / 2);
@@ -144,9 +144,9 @@ FinAlgoritmo
 - Ingresa: `3301`
 - **Salida esperada:**
 ```text
-Comparando con posición 4: 3301 
+Comparando con posición 3: 3301 
 ✓ ¡ÉXITO! Registro localizado 
-Posición en el sistema: 4 
+Posición en el sistema: 3 
 Valor del registro: 3301
 ```
 
@@ -155,10 +155,10 @@ Valor del registro: 3301
 - Ingresa: `9999`
 - **Salida esperada:**
 ```text
-Comparando con posición 4: 3301 → Buscando en mitad superior 
-Comparando con posición 6: 4005 → Buscando en mitad superior 
-Comparando con posición 7: 5020 → Buscando en mitad superior 
-Comparando con posición 8: 6081 → Buscando en mitad superior 
+Comparando con posición 3: 3301 → Buscando en mitad superior 
+Comparando con posición 5: 4005 → Buscando en mitad superior 
+Comparando con posición 6: 5020 → Buscando en mitad superior 
+Comparando con posición 7: 6081 → Buscando en mitad superior 
 ✗ ERROR: Registro 9999 no existe en la base de datos
 ```
 
@@ -179,7 +179,7 @@ Completa la siguiente tabla en un documento aparte:
 ### 🎓 Preguntas de Reflexión
 
 1. **¿Cuántas comparaciones se hacen al buscar 6081 en ambos algoritmos?**
-   - Binaria: 3 comparaciones (4 → 6 → 8)
+   - Binaria: 4 comparaciones (3 → 5 → 6 → 7)
    - Lineal: 8 comparaciones (recorrer todo)
 
 2. **¿Qué sucedería si el arreglo tuviera 1 millón de registros?**
@@ -357,7 +357,7 @@ Algoritmo SimuladorColaFIFO
 	Definir solicitud Como Cadena;
 	Definir continuar Como Caracter;
 
-	Dimension cola[10];
+	Dimension cola[11];
 	inicio <- 1;
 	final <- 0;
 	tamanio <- 0;
@@ -500,14 +500,14 @@ Algoritmo BusquedaLineal
 	Definir encontrado Como Logico;
 
 	Dimension registros[8];
-	registros[1] <- 1002;
-	registros[2] <- 1045;
-	registros[3] <- 2098;
-	registros[4] <- 3301;
-	registros[5] <- 3311;
-	registros[6] <- 4005;
-	registros[7] <- 5020;
-	registros[8] <- 6081;
+	registros[0] <- 1002;
+	registros[1] <- 1045;
+	registros[2] <- 2098;
+	registros[3] <- 3301;
+	registros[4] <- 3311;
+	registros[5] <- 4005;
+	registros[6] <- 5020;
+	registros[7] <- 6081;
 
 	encontrado <- Falso;
 	comparaciones <- 0;
@@ -516,7 +516,7 @@ Algoritmo BusquedaLineal
 	Escribir "Ingresa el registro a buscar:";
 	Leer meta;
 
-	Para i <- 1 Hasta 8 Con Paso 1 Hacer
+	Para i <- 0 Hasta 7 Con Paso 1 Hacer
 		comparaciones <- comparaciones + 1;
 		Escribir "Comparación ", comparaciones, ": registros[", i, "] = ", registros[i];
 		
@@ -525,7 +525,7 @@ Algoritmo BusquedaLineal
 			Escribir "✓ ENCONTRADO en posición ", i;
 			Escribir "Total de comparaciones: ", comparaciones;
 			encontrado <- Verdadero;
-			i <- 9;
+			i <- 8;
 		FinSi;
 	FinPara;
 
@@ -543,24 +543,24 @@ FinAlgoritmo
 
 **Búsqueda Lineal:**
 ```text
-Comparación 1: registros[1] = 1002 
-Comparación 2: registros[2] = 1045 
-Comparación 3: registros[3] = 2098 
-Comparación 4: registros[4] = 3301 
-Comparación 5: registros[5] = 3311 
-Comparación 6: registros[6] = 4005 
-Comparación 7: registros[7] = 5020 
-✓ ENCONTRADO en posición 7 
+Comparación 1: registros[0] = 1002 
+Comparación 2: registros[1] = 1045 
+Comparación 3: registros[2] = 2098 
+Comparación 4: registros[3] = 3301 
+Comparación 5: registros[4] = 3311 
+Comparación 6: registros[5] = 4005 
+Comparación 7: registros[6] = 5020 
+✓ ENCONTRADO en posición 6 
 Total de comparaciones: 7
 ```
 
 **Búsqueda Binaria (del código anterior):**
 ```text
-Comparando con posición 4: 3301 → Buscando en mitad superior 
-Comparando con posición 6: 4005 → Buscando en mitad superior 
-Comparando con posición 7: 5020 
+Comparando con posición 3: 3301 → Buscando en mitad superior 
+Comparando con posición 5: 4005 → Buscando en mitad superior 
+Comparando con posición 6: 5020 
 ✓ ¡ÉXITO! Registro localizado 
-Posición en el sistema: 7
+Posición en el sistema: 6
 ```
 
 #### Paso 3: Tabla Comparativa
@@ -569,11 +569,11 @@ Completa esta tabla con tus resultados reales:
 
 | Elemento | Posición | Lineal (Comp.) | Binaria (Comp.) | Mejora |
 |----------|----------|----------------|-----------------|--------|
-| 1002 | 1 | 1 | 3 | Sin mejora |
-| 3311 | 5 | 5 | 3 | 40% menos |
-| 5020 | 7 | 7 | 3 | 57% menos |
-| 6081 | 8 | 8 | 3 | 62% menos |
-| 9999 | N/A | 8 | 3 | 62% menos |
+| 1002 | 0 | 1 | 3 | Sin mejora |
+| 3311 | 4 | 5 | 3 | 40% menos |
+| 5020 | 6 | 7 | 4 | 42% menos |
+| 6081 | 7 | 8 | 4 | 50% menos |
+| 9999 | N/A | 8 | 4 | 50% menos |
 
 **Fórmula de Mejora:** `(Lineal - Binaria) / Lineal × 100%`
 
