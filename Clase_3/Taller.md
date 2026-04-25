@@ -9,13 +9,16 @@
 ## 📋 Tabla de Contenidos
 
 1. [Herramientas Requeridas](#herramientas-requeridas)
-2. [Actividad 1: Merge Sort - Divide y Conquista](#actividad-1-merge-sort---divide-y-conquista)
-3. [Actividad 2: Quick Sort - Estrategia del Pivote](#actividad-2-quick-sort---estrategia-del-pivote)
-4. [Actividad 3: Análisis DFS vs BFS con Flowgorithm](#actividad-3-análisis-dfs-vs-bfs-con-flowgorithm)
-5. [Actividad 4: Comparativa de Algoritmos de Ordenamiento](#actividad-4-comparativa-de-algoritmos-de-ordenamiento)
-6. [Rúbrica de Evaluación](#rúbrica-de-evaluación)
-7. [Preguntas de Reflexión](#preguntas-de-reflexión-final)
-8. [Entregables](#entregables-requeridos)
+2. [Actividad 1: Configuración VS Code y Python Básico](#actividad-1-configuración-vs-code-y-python-básico)
+3. [Actividad 2: Análisis Línea por Línea de Python](#actividad-2-análisis-línea-por-línea-de-python)
+4. [Actividad 3: Reto Analítico de Script en Python](#actividad-3-reto-analítico-de-script-en-python)
+5. [Actividad 4: Merge Sort - Divide y Conquista](#actividad-4-merge-sort---divide-y-conquista)
+6. [Actividad 5: Quick Sort - Estrategia del Pivote](#actividad-5-quick-sort---estrategia-del-pivote)
+7. [Actividad 6: Análisis DFS vs BFS con Flowgorithm](#actividad-6-análisis-dfs-vs-bfs-con-flowgorithm)
+8. [Actividad 7: Comparativa de Algoritmos de Ordenamiento](#actividad-7-comparativa-de-algoritmos-de-ordenamiento)
+9. [Rúbrica de Evaluación](#rúbrica-de-evaluación)
+10. [Preguntas de Reflexión](#preguntas-de-reflexión-final)
+11. [Entregables](#entregables-requeridos)
 
 ---
 
@@ -56,7 +59,105 @@
 
 ---
 
-## 🎯 Actividad 1: Merge Sort - Divide y Conquista
+### Visual Studio Code y Entorno Python Básico
+
+**Instalación y Configuración:**
+1. Descarga VS Code desde: https://code.visualstudio.com/
+2. Instala Python nativo desde: https://www.python.org/downloads/
+3. Abre VS Code e instala las extensiones base (Python, Pylance, Code Runner).
+4. Opcional: Vincula tu cuenta universitaria para GitHub Copilot y habilita tu entorno para integrar herramientas mediante MCP.
+
+---
+
+## 🎯 Actividad 1: Configuración VS Code y Python Básico
+
+### Objetivo Pedagógico
+Instalar y configurar el entorno de desarrollo profesional y asegurar su funcionamiento estructurando tu primer script lógico de Python puro.
+
+### ¿Por Qué Es Importante?
+Los algoritmos complejos no pueden ejecutarse sobre papel. Asegurar el funcionamiento del IDE y de las extensiones (como Prettier o Code Runner) elimina el 50% de las frustraciones tempranas por errores de sintaxis y te prepara para integrar Inteligencia artificial en tu flujo.
+
+---
+
+### 📝 Instrucciones Paso a Paso
+
+#### Paso 1: Extensiones Esenciales y Setup
+1. En VS Code abre el menú de Extensiones (`Ctrl+Shift+X`).
+2. Asegúrate de instalar "Python" (Microsoft) y "Code Runner" (Jun Han).
+
+#### Paso 2: Tu Primer Archivo en Python
+Crea un archivo llamado `01_base_python.py` y digita lo siguiente para probar las condicionales y ciclos básicos:
+
+```python
+# Mi primera asimilación de variables, ciclos y funciones
+def evaluar_numeros(lista):
+    print("Iniciando análisis algorítmico...")
+    for numero in lista:
+        if numero % 2 == 0:
+            print(f"[{numero}] - Cumple como condición de PAR")
+        else:
+            print(f"[{numero}] - Rechazado (IMPAR)")
+
+# Declaramos nuestra lista y la procesamos
+mis_numeros = [1, 2, 3, 4, 5, 8, 10]
+evaluar_numeros(mis_numeros)
+```
+
+#### Paso 3: Ejecutar con Code Runner
+En VS Code, presiona el botón "Play" arriba a la derecha. 
+Deberás obtener una salida en tu consola inferior separando perfectamente los números pares de los impares. Si esto ocurre, ¡tu sistema y tu IDE están listos para la batalla!
+
+#### Paso 4: Análisis Línea por Línea del Código (Desglose Estructural)
+Para un ingeniero, ninguna línea de código es magia. Analiza esta traducción nativa a nivel conceptual:
+- `def evaluar_numeros(lista):` -> Así se declara una función (una tarea autónoma empaquetada). `def` significa *define*. Lo que está en paréntesis es el insumo necesario (en este caso, un conjunto de datos llamado *lista*). Fíjate en los dos puntos `:` al final, que abren un bloque subordinado (hijo).
+- `print(...)` -> El equivalente directo a `Escribir` en tu diagrama de flujo. Imprime texto o variables en la pantalla del usuario velozmente.
+- `for numero in lista:` -> Un ciclo "Para" automático. Significa "Por cada elemento individual en el iterador, ejecuta repetidamente la rutina inferior". No necesitas configurar un tedioso `Con Paso 1 Hacer` como en PSeInt; Python lo infiere usando sus motores en C.
+- `if numero % 2 == 0:` -> Condicional Clásico "Si". La expresión `%` se llama *Módulo* y no divide, sino que **extrae el residuo** de una división. Aquí la computadora pregunta: "Si al dividir por 2 lo que me sobra es nulo (0), entonces el número obligatoriamente es PAR".
+- `else:` -> El infalible "Sino" de PSeInt. Atrapa incondicionalmente todos aquellos eventos matemáticos descartados por tu `if` primario. En este caso es el basurero que recolecta impares.
+- `f"[{numero}] -..."` -> La 'f' inicial indica un *f-string* (format string). Es probablemente el truco más genial del lenguaje. Exime de engorrosas concatenaciones con signos de resta o suma. Permite insertar el valor de una variable viva directo en el texto si la rodeas de llaves `{}`.
+- `mis_numeros = [...]` -> Usamos llaves cuadradas (`[]`) para estipular en memoria una lista (Arreglo o Matriz de 1D) sin requerir declaración rigurosa temporal.
+
+---
+
+## 🎯 Actividad 2: Reto Analítico de Script en Python
+
+### Objetivo Pedagógico
+Instanciar variables matemáticas nativamente, ensamblar bucles de control base `for`, e identificar la funcionalidad al modular problemas enrutados en funciones lógicas separadas.
+
+### 📝 Instrucciones Paso a Paso
+Crea un nuevo archivo `02_sumatoria_promedio.py` en tu IDE y escribe el siguiente algoritmo de facturación de productos. Léelo rigurosamente e intenta predecir qué hará el procesador en cada renglón antes de pulsar Play.
+
+```python
+def calcular_factura_final(precios):
+    # Inicializamos celdas acumuladoras locales (PILA LIFO virtual)
+    total_acumulado = 0
+    cantidad_items = 0
+    
+    # Análisis cíclico de facturación
+    for monto in precios:
+        total_acumulado = total_acumulado + monto
+        cantidad_items += 1  # Variante elegante corporativa de: cantidad = cantidad + 1
+    
+    # Condicional Catcher Error: Mitigación de riesgos para base datos vacía
+    if cantidad_items == 0:
+        print("Error Crítico: No hay métricos ni productos dictaminados")
+        return # Expulsa al código de la función inmediatamente, parando el desastre
+        
+    promedio = total_acumulado / cantidad_items
+    print(f"El cobro sistemático final es de: ${total_acumulado}")
+    print(f"La dispersión matemática (promedio por producto): ${promedio}")
+
+# Creamos la inyección en nuestro arreglo de precios de mercado
+carrito_compras = [100.5, 45.0, 30.2, 500.0, 150.7]
+
+print(">>> SISTEMA LOGÍSTICO DE FACTURACIÓN (ON) <<<")
+calcular_factura_final(carrito_compras)
+```
+*Ejecuta este archivo usando el botón Play del Code Runner y evalúa matemáticamente si el script cumplió su propósito algorítmico y deduce qué papel jugó el `return` si hipotéticamente mandáramos una lista vacía `[]`.*
+
+---
+
+## 🎯 Actividad 4: Merge Sort - Divide y Conquista
 
 ### Objetivo Pedagógico
 Implementar el algoritmo Merge Sort validando complejidad **O(n log n)** y comprendiendo el patrón "Divide y Conquista".
@@ -226,7 +327,7 @@ Completa la siguiente tabla en tus apuntes o entorno de desarrollo:
 
 ---
 
-## 🎯 Actividad 2: Quick Sort - Estrategia del Pivote
+## 🎯 Actividad 5: Quick Sort - Estrategia del Pivote
 
 ### Objetivo Pedagógico
 Implementar Quick Sort usando partición por pivote y comprender la recursión generada a través del stack de llamadas.
@@ -323,7 +424,7 @@ Ejecuta el programa y obsrva cómo se selecciona un número, la terminal reacomo
 
 ---
 
-## 📊 Actividad 3: Análisis DFS vs BFS con Flowgorithm
+## 📊 Actividad 6: Análisis DFS vs BFS con Flowgorithm
 
 ### Objetivo Pedagógico
 Visualizar y comparar dos estrategias fundamentales de recorrido en topologías complejas y grafos: Recorrido en Profundidad (DFS) y Amplitud (BFS).
@@ -374,7 +475,7 @@ Debido a la topología abstracta requerirás trazar a papel o en sistema las est
 
 ---
 
-## ⚖️ Actividad 4: Comparativa de Algoritmos de Ordenamiento
+## ⚖️ Actividad 7: Comparativa de Algoritmos de Ordenamiento
 
 ### Objetivo Pedagógico
 Ejecutar el letárgico Bubble Sort vs Merge/Quick Sort sobre el mismo dataset, visualizando en vivo diferencias de rendimiento.
